@@ -1,11 +1,19 @@
 const mysql = require("mysql2");
-const SUPER_SECRET_PASSWORD = process.env.DB_PASSWORD;
+const fs = require("fs");
+require('dotenv').config();
 
-const pool = mysql.createPool({
-  host: "mysql-stayloop-hotels-db-stayloop-hotels.i.aivencloud.com", 
-  user: "avnadmin",
-  password: SUPER_SECRET_PASSWORD, 
-  database: "stayloop_hotels", 
-});
+const config = {
+  // Usamos la URI desde las variables de entorno
+  uri: process.env.DB_URI,
+
+  // Configuración SSL usando directamente el archivo ca.pem
+  ssl: {
+    ca: fs.readFileSync(__dirname + "/ca.pem"),
+    rejectUnauthorized: true
+  },
+};
+
+
+const pool = mysql.createPool(config);
 
 module.exports = pool.promise();

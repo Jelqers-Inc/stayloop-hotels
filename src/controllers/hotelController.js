@@ -7,7 +7,7 @@ const getAllHoteles = async (req, res) => {
   } catch (error) {
     res
       .status(500)
-      .json({ message: "Error en el servidor", error: error.message });
+      .json({ message: "Error en el servidor", error: error.message, code: error.error_code });
   }
 };
 

@@ -4,7 +4,7 @@ const hotelSchema = {
   descripcion: { type: "string", required: true },
   direccion: { type: "string", required: true },
   idZona: { type: "number", required: true },
-  idUsuario: { type: "number", required: true },
+  idUsuario: { type: "string", required: true },
 };
 
 module.exports = hotelSchema;
