@@ -3,22 +3,22 @@ const router = express.Router();
 const tipoHabitacionController = require("../controllers/roomTypeController");
 
 router.get(
-  "/tipos-habitacion/:hotelId",
+  "/getbyhotelid/:hotelId",
   tipoHabitacionController.getTiposByHotelId
 );
 
 router.post(
-  "/tipos-habitacion/:hotelId",
+  "/createtohotel/:hotelId",
   tipoHabitacionController.createTipoHabitacion
 );
 
 router.put(
-  "/tipos-habitacion/:id",
+  "/update/:id",
   tipoHabitacionController.updateTipoHabitacion
 );
 
 router.delete(
-  "/tipos-habitacion/:id",
+  "/delete/:id",
   tipoHabitacionController.deleteTipoHabitacion
 );
 

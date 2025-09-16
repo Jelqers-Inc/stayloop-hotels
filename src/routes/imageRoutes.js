@@ -7,13 +7,13 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
 router.post(
-  "/imagenes/:hotelId",
+  "/upload/:hotelId",
   upload.single("imagen"),
   imagenController.uploadImagen
 );
 
-router.get("/imagenes/:hotelId", imagenController.getImagenesByHotel);
-router.get("/imagenes/:id", imagenController.getImagenById);
-router.delete("/imagenes/:id", imagenController.deleteImagen);
+router.get("/getbyhotelid/:hotelId", imagenController.getImagenesByHotel);
+router.get("/getbyid/:id", imagenController.getImagenById);
+router.delete("/delete/:id", imagenController.deleteImagen);
 
 module.exports = router;
