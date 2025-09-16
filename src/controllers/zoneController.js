@@ -44,6 +44,7 @@ const createZona = async (req, res) => {
 
 const updateZona = async (req, res) => {
   try {
+    console.log("CUERPO RECIBIDO:", req.body);
     const { id } = req.params;
     const zonaActualizada = await Zona.update(id, req.body);
     if (!zonaActualizada) {
